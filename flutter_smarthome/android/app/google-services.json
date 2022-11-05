@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "508114516420",
+    "project_id": "beneboba-1cc04",
+    "storage_bucket": "beneboba-1cc04.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:508114516420:android:25ed810074e39297dc4c91",
+        "android_client_info": {
+          "package_name": "com.example.flutter_smarthome"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "508114516420-5f429tl743mvdfhsdocutjfoaq76h6m1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAOPREuDqPdoYheoCNDsG_1Hw8iAQLcwQ0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "508114516420-5f429tl743mvdfhsdocutjfoaq76h6m1.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "508114516420-gralgoee3o6j1up0g2bf2djcv6qplmav.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.flutterSmarthome"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
