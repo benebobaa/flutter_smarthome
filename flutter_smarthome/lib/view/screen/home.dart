@@ -5,8 +5,6 @@ import 'package:flutter_smarthome/view_model/switch_provider.dart';
 import 'package:flutter_smarthome/view/color/colors.dart';
 import 'package:flutter_smarthome/view/widgets/custom_card.dart';
 import 'package:flutter_smarthome/view/widgets/custom_card2.dart';
-import 'package:flutter_smarthome/view/widgets/custom_card3.dart';
-import 'package:flutter_smarthome/view/widgets/custom_card4.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
@@ -44,15 +42,15 @@ class _HomeState extends State<Home> {
                   fit: BoxFit.cover,
                 ),
               ),
-              accountName: Text(''),
+              accountName: const Text(''),
               accountEmail: Text(
                 user.email!,
-                style: TextStyle(fontSize: 15),
+                style: const TextStyle(fontSize: 15),
               ),
             ),
             ListTile(
               title: Row(
-                children: <Widget>[
+                children: const <Widget>[
                   Icon(Icons.outlet_sharp),
                   Padding(
                     padding: EdgeInsets.only(left: 25.0),
@@ -88,7 +86,7 @@ class _HomeState extends State<Home> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         IconButton(
-                          icon: Icon(
+                          icon: const Icon(
                             Icons.menu,
                             color: Colors.white,
                             size: 32,
@@ -99,7 +97,7 @@ class _HomeState extends State<Home> {
                         Text(
                           'Home',
                           style: GoogleFonts.oswald(
-                            textStyle: TextStyle(
+                            textStyle: const TextStyle(
                                 color: Colors.white,
                                 fontWeight: FontWeight.bold,
                                 fontSize: 27,
@@ -112,7 +110,7 @@ class _HomeState extends State<Home> {
                           decoration: BoxDecoration(
                             color: Colors.grey[200],
                             borderRadius: BorderRadius.circular(30),
-                            boxShadow: [
+                            boxShadow: const [
                               BoxShadow(
                                 color: Colors.grey,
                                 blurRadius: 10,
@@ -120,7 +118,7 @@ class _HomeState extends State<Home> {
                               ),
                             ],
                           ),
-                          child: Icon(
+                          child: const Icon(
                             Icons.notifications_none,
                             color: Colors.blueGrey,
                           ),
@@ -152,7 +150,7 @@ class _HomeState extends State<Home> {
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(
+                            const Text(
                               'Hello',
                               style: TextStyle(
                                 color: Colors.white,
@@ -163,7 +161,7 @@ class _HomeState extends State<Home> {
                             SizedBox(height: size.height * 0.01),
                             Text(
                               user.email!,
-                              style: TextStyle(
+                              style: const TextStyle(
                                   color: Colors.white,
                                   fontWeight: FontWeight.bold,
                                   fontSize: 23,
@@ -177,8 +175,19 @@ class _HomeState extends State<Home> {
                     Container(
                       height: 80,
                       width: size.width * 1,
+                      decoration: BoxDecoration(
+                        color: lightblue,
+                        borderRadius: BorderRadius.circular(18),
+                        boxShadow: const [
+                          BoxShadow(
+                            color: Colors.black12,
+                            blurRadius: 8,
+                            offset: Offset(3, 3),
+                          ),
+                        ],
+                      ),
                       child: Padding(
-                        padding: EdgeInsets.only(left: 50, right: 50),
+                        padding: const EdgeInsets.only(left: 50, right: 50),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
@@ -187,7 +196,7 @@ class _HomeState extends State<Home> {
                               children: [
                                 Text(
                                   '${snapshot.data!.snapshot.child('suhu').value.toString()}°C',
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                     fontSize: 20,
                                     fontWeight: FontWeight.bold,
                                     color: Colors.black,
@@ -195,7 +204,7 @@ class _HomeState extends State<Home> {
                                 ),
                                 Text(
                                   '${snapshot.data!.snapshot.child('kelembapan').value.toString()}%',
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                     fontSize: 20,
                                     fontWeight: FontWeight.bold,
                                     color: Colors.black,
@@ -203,7 +212,7 @@ class _HomeState extends State<Home> {
                                 )
                               ],
                             ),
-                            SizedBox(height: 5),
+                            const SizedBox(height: 5),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
@@ -228,41 +237,50 @@ class _HomeState extends State<Home> {
                           ],
                         ),
                       ),
-                      decoration: BoxDecoration(
-                        color: lightblue,
-                        borderRadius: BorderRadius.circular(18),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.black12,
-                            blurRadius: 8,
-                            offset: Offset(3, 3),
-                          ),
-                        ],
-                      ),
                     ),
                     SizedBox(height: size.height * 0.05),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
                         CustomCard(
+                          bgcolor: card1,
+                          status: switchProvider.homeTxt,
+                          icon: switchProvider.homeIcn,
                           color: switchProvider.color1,
                           title: 'Home',
+                          sendBool: () {
+                            cek = !cek;
+                            switchProvider.home = cek;
+                          },
                         ),
-                        CustomCard2(title: api.toString())
+                        CustomCard2(title: api.toString()),
                       ],
                     ),
                     SizedBox(height: size.height * 0.03),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
-                        CustomCard3(
+                        CustomCard(
+                          bgcolor: card4,
+                          status: switchProvider.lampTxt,
                           color: switchProvider.color2,
-                          title: 'Lamp',
+                          title: 'Lampu',
+                          sendBool: () {
+                            cek = !cek;
+                            switchProvider.lamp = cek;
+                          },
+                          icon: switchProvider.lampIcn,
                         ),
-                        CustomCard4(
-                          color: switchProvider.color3,
-                          title: 'Fan',
-                        )
+                        CustomCard(
+                            bgcolor: card3,
+                            color: switchProvider.color3,
+                            title: 'Fan',
+                            sendBool: () {
+                              cek = !cek;
+                              switchProvider.fan = cek;
+                            },
+                            icon: switchProvider.fanIcn,
+                            status: switchProvider.fanTxt)
                       ],
                     ),
                   ],
@@ -270,10 +288,8 @@ class _HomeState extends State<Home> {
               ),
             );
           } else {
-            return Container(
-              child: Center(
-                child: CircularProgressIndicator(),
-              ),
+            return const Center(
+              child: CircularProgressIndicator(),
             );
           }
         },

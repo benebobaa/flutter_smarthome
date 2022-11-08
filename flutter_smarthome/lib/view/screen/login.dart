@@ -1,8 +1,6 @@
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_smarthome/model/auth/main_page_auth.dart';
 import 'package:flutter_smarthome/view/color/colors.dart';
-import 'package:flutter_smarthome/view/screen/home.dart';
 import 'package:flutter_smarthome/view/screen/register.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -49,25 +47,25 @@ class _LoginState extends State<Login> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Icon(Icons.home_outlined, size: 100),
-                SizedBox(height: 20),
+                const Icon(Icons.home_outlined, size: 100),
+                const SizedBox(height: 20),
                 Text(
                   'Hello',
                   style: GoogleFonts.bebasNeue(fontSize: 40),
                 ),
-                SizedBox(height: 15),
-                Text(
+                const SizedBox(height: 15),
+                const Text(
                   'Welcome home, have a nice day!',
                   style: TextStyle(fontSize: 20),
                 ),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 Form(
                   autovalidateMode: AutovalidateMode.onUserInteraction,
                   key: _formKey,
                   child: Column(
                     children: <Widget>[
                       Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 25),
+                        padding: const EdgeInsets.symmetric(horizontal: 25),
                         child: Container(
                           decoration: BoxDecoration(
                             color: Colors.white,
@@ -75,10 +73,10 @@ class _LoginState extends State<Login> {
                             borderRadius: BorderRadius.circular(12),
                           ),
                           child: Padding(
-                            padding: EdgeInsets.only(left: 20),
+                            padding: const EdgeInsets.only(left: 20),
                             child: TextFormField(
                                 controller: _emailController,
-                                decoration: InputDecoration(
+                                decoration: const InputDecoration(
                                   border: InputBorder.none,
                                   hintText: 'Email',
                                 ),
@@ -93,9 +91,9 @@ class _LoginState extends State<Login> {
                           ),
                         ),
                       ),
-                      SizedBox(height: 20),
+                      const SizedBox(height: 20),
                       Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 25),
+                        padding: const EdgeInsets.symmetric(horizontal: 25),
                         child: Container(
                           decoration: BoxDecoration(
                             color: Colors.white,
@@ -103,11 +101,11 @@ class _LoginState extends State<Login> {
                             borderRadius: BorderRadius.circular(12),
                           ),
                           child: Padding(
-                            padding: EdgeInsets.only(left: 20),
+                            padding: const EdgeInsets.only(left: 20),
                             child: TextFormField(
                               controller: _passwordController,
                               obscureText: true,
-                              decoration: InputDecoration(
+                              decoration: const InputDecoration(
                                   border: InputBorder.none,
                                   hintText: 'Password'),
                               validator: (value) {
@@ -121,20 +119,20 @@ class _LoginState extends State<Login> {
                           ),
                         ),
                       ),
-                      SizedBox(height: 15),
+                      const SizedBox(height: 15),
                       GestureDetector(
                         onTap: () {
                           signIn();
                         },
                         child: Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 25),
+                          padding: const EdgeInsets.symmetric(horizontal: 25),
                           child: Container(
-                            padding: EdgeInsets.all(20),
+                            padding: const EdgeInsets.all(20),
                             decoration: BoxDecoration(
                               color: Colors.deepPurple,
                               borderRadius: BorderRadius.circular(12),
                             ),
-                            child: Center(
+                            child: const Center(
                               child: Text(
                                 'Sign In',
                                 style: TextStyle(
@@ -149,11 +147,11 @@ class _LoginState extends State<Login> {
                     ],
                   ),
                 ),
-                SizedBox(height: 15),
+                const SizedBox(height: 15),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text('Dont have an account? '),
+                    const Text('Dont have an account? '),
                     GestureDetector(
                         onTap: () {},
                         child: GestureDetector(
@@ -161,9 +159,9 @@ class _LoginState extends State<Login> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => Register()));
+                                    builder: (context) => const Register()));
                           },
-                          child: Text('Register now',
+                          child: const Text('Register now',
                               style: TextStyle(color: Colors.blue)),
                         ))
                   ],

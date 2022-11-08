@@ -35,4 +35,38 @@ class SwitchProvider with ChangeNotifier {
   String get homeTxt => (_home) ? 'Unlocked' : 'Locked';
   String get lampTxt => (_lamp) ? 'On' : 'Off';
   String get fanTxt => (_fan) ? 'On' : 'Off';
+
+  Icon get homeIcn => (_home)
+      ? const Icon(
+          Icons.home,
+          color: Colors.white,
+          size: 60,
+        )
+      : const Icon(
+          Icons.home_outlined,
+          color: Colors.white,
+          size: 60,
+        );
+  Icon get lampIcn => (_lamp)
+      ? const Icon(
+          Icons.lightbulb,
+          color: Colors.white,
+          size: 60,
+        )
+      : const Icon(
+          Icons.lightbulb_outline,
+          color: Colors.white,
+          size: 60,
+        );
+  Icon get fanIcn => (_fan)
+      ? const Icon(
+          Icons.wind_power,
+          color: Colors.white,
+          size: 60,
+        )
+      : const Icon(
+          Icons.wind_power_outlined,
+          color: Colors.white,
+          size: 60,
+        );
 }

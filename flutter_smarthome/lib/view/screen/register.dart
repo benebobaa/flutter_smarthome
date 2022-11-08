@@ -1,9 +1,7 @@
 import 'package:email_validator/email_validator.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_smarthome/model/auth/main_page_auth.dart';
 import 'package:flutter_smarthome/view/color/colors.dart';
-import 'package:flutter_smarthome/view/screen/login.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class Register extends StatefulWidget {
@@ -56,25 +54,25 @@ class _RegisterState extends State<Register> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Icon(Icons.home, size: 100),
-                  SizedBox(height: 20),
+                  const Icon(Icons.home, size: 100),
+                  const SizedBox(height: 20),
                   Text(
                     'Hello',
                     style: GoogleFonts.bebasNeue(fontSize: 40),
                   ),
-                  SizedBox(height: 15),
-                  Text(
+                  const SizedBox(height: 15),
+                  const Text(
                     'Lets Started!',
                     style: TextStyle(fontSize: 20),
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   Form(
                     autovalidateMode: AutovalidateMode.onUserInteraction,
                     key: _formKey,
                     child: Column(
                       children: <Widget>[
                         Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 25),
+                          padding: const EdgeInsets.symmetric(horizontal: 25),
                           child: Container(
                             decoration: BoxDecoration(
                               color: Colors.white,
@@ -82,10 +80,10 @@ class _RegisterState extends State<Register> {
                               borderRadius: BorderRadius.circular(12),
                             ),
                             child: Padding(
-                              padding: EdgeInsets.only(left: 20),
+                              padding: const EdgeInsets.only(left: 20),
                               child: TextFormField(
                                   controller: _emailController,
-                                  decoration: InputDecoration(
+                                  decoration: const InputDecoration(
                                     border: InputBorder.none,
                                     hintText: 'Email',
                                   ),
@@ -100,9 +98,9 @@ class _RegisterState extends State<Register> {
                             ),
                           ),
                         ),
-                        SizedBox(height: 10),
+                        const SizedBox(height: 10),
                         Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 25),
+                          padding: const EdgeInsets.symmetric(horizontal: 25),
                           child: Container(
                             decoration: BoxDecoration(
                               color: Colors.white,
@@ -110,11 +108,11 @@ class _RegisterState extends State<Register> {
                               borderRadius: BorderRadius.circular(12),
                             ),
                             child: Padding(
-                              padding: EdgeInsets.only(left: 20),
+                              padding: const EdgeInsets.only(left: 20),
                               child: TextFormField(
                                 controller: _passwordController,
                                 obscureText: true,
-                                decoration: InputDecoration(
+                                decoration: const InputDecoration(
                                     border: InputBorder.none,
                                     hintText: 'Password'),
                                 validator: (value) {
@@ -128,9 +126,9 @@ class _RegisterState extends State<Register> {
                             ),
                           ),
                         ),
-                        SizedBox(height: 10),
+                        const SizedBox(height: 10),
                         Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 25),
+                          padding: const EdgeInsets.symmetric(horizontal: 25),
                           child: Container(
                             decoration: BoxDecoration(
                               color: Colors.white,
@@ -138,11 +136,11 @@ class _RegisterState extends State<Register> {
                               borderRadius: BorderRadius.circular(12),
                             ),
                             child: Padding(
-                              padding: EdgeInsets.only(left: 20),
+                              padding: const EdgeInsets.only(left: 20),
                               child: TextFormField(
                                 controller: _confirmPasswordController,
                                 obscureText: true,
-                                decoration: InputDecoration(
+                                decoration: const InputDecoration(
                                     border: InputBorder.none,
                                     hintText: 'Confirm Password'),
                                 validator: (value) {
@@ -156,7 +154,7 @@ class _RegisterState extends State<Register> {
                             ),
                           ),
                         ),
-                        SizedBox(height: 15),
+                        const SizedBox(height: 15),
                         GestureDetector(
                           onTap: () {
                             signUp();
@@ -170,11 +168,9 @@ class _RegisterState extends State<Register> {
                                           'Congratulations, your account has been successfully created.'),
                                       actions: <Widget>[
                                         TextButton(
-                                          onPressed: () => Navigator.push(
-                                              context,
-                                              MaterialPageRoute(
-                                                  builder: (context) =>
-                                                      Login())),
+                                          onPressed: () => Navigator.of(context)
+                                              .popUntil(
+                                                  (route) => route.isFirst),
                                           child: const Text('OK'),
                                         ),
                                       ],
@@ -198,14 +194,14 @@ class _RegisterState extends State<Register> {
                                   );
                           },
                           child: Padding(
-                            padding: EdgeInsets.symmetric(horizontal: 25),
+                            padding: const EdgeInsets.symmetric(horizontal: 25),
                             child: Container(
-                              padding: EdgeInsets.all(20),
+                              padding: const EdgeInsets.all(20),
                               decoration: BoxDecoration(
                                 color: Colors.deepPurple,
                                 borderRadius: BorderRadius.circular(12),
                               ),
-                              child: Center(
+                              child: const Center(
                                 child: Text(
                                   'Sign Up',
                                   style: TextStyle(
@@ -220,7 +216,7 @@ class _RegisterState extends State<Register> {
                       ],
                     ),
                   ),
-                  SizedBox(height: 15),
+                  const SizedBox(height: 15),
                 ],
               ),
             ),
